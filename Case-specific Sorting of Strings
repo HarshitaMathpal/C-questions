@@ -1,0 +1,40 @@
+Given a string S consisting of uppercase and lowercase characters. The task is to sort uppercase and lowercase letters separately such that if the ith place in the original string had an Uppercase character then it should not have a lowercase character after being sorted and vice versa.
+
+class Solution
+{
+    //Function to perform case-specific sorting of strings.
+    public static String caseSort(String str)
+    {
+        // Your code here
+    String s ="";
+    int n= str.length();					      	 
+    ArrayList<Character> l1 = new ArrayList<Character>();
+    ArrayList<Character> l2 = new ArrayList<Character>();
+       for(int i=0; i<n; i++){
+           if(str.charAt(i)>=97 && str.charAt(i)<=122)
+           {
+           l1.add(str.charAt(i));
+           }
+       }
+       for(int i=0; i<n; i++){
+           if(str.charAt(i)>=65 && str.charAt(i)<=90)
+           {
+           l2.add(str.charAt(i));
+           }
+       }
+       Collections.sort(l1);
+       Collections.sort(l2);
+       int j=0,k=0;
+       for(int i=0; i<n; i++){
+           if(str.charAt(i)>=97 && str.charAt(i)<=122){
+               s+=l1.get(j);
+               j++;
+           }
+           else if(str.charAt(i)>=65 && str.charAt(i)<=190){
+               s+=l2.get(k);
+               k++;
+           }
+       }
+       return s;
+   }
+}
