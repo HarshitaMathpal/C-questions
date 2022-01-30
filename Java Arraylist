@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.nextLine();
+        ArrayList<ArrayList<String>> Mainl = new ArrayList<ArrayList<String>>(n);
+        for (int i = 0; i < n; i++) {
+            s = sc.nextLine();
+            Mainl.add(i, new ArrayList<String>(Arrays.asList(s.split("\\s"))));
+        }
+            int q = sc.nextInt();
+            while(q>0){
+                int row = sc.nextInt();
+                int col = sc.nextInt();
+                if (row <= Mainl.size() && col < Mainl.get(row-1).size() && col >= 0) {
+                System.out.println(Mainl.get(row-1).get(col));
+            } else {
+                System.out.println("ERROR!");
+            }
+                q--;
+            }
+            sc.close();
+    }
+}
