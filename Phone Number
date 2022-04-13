@@ -1,0 +1,39 @@
+public static String getPhoneNumber(String s) {
+    // Write your code here
+    String[] arr = s.split(" ");
+        String ans="";
+        HashMap<String,String> hm=new HashMap<String , String>();
+        hm.put("zero","0");
+        hm.put("one","1");
+        hm.put("two","2");
+        hm.put("three","3");
+        hm.put("four","4");
+        hm.put("five","5");
+        hm.put("six","6");
+        hm.put("seven","7");
+        hm.put("eight","8");
+        hm.put("nine","9"); 
+        for(int i=0;i<arr.length;i++){
+            String a=arr[i];
+            if(a.equals("double")){
+            if(hm.containsKey(a)){
+                String x=hm.get(a);
+                ans+=x;
+            }
+            } 
+            else if(a.equals("triple")){
+               if(hm.containsKey(a)){
+               String y=hm.get(a);
+                ans+=y+y;
+               }
+                
+            }  
+            else{
+                if(hm.containsKey(a)){
+                ans+=hm.get(a);
+                }
+            }
+        }
+        return ans;
+    }    
+}
